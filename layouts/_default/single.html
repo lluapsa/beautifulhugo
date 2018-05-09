@@ -3,6 +3,12 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
+      {{ if (eq .Params.toc "true") }}
+
+          {{ .TableOfContents }}
+
+      {{ end }}
+
         {{ .Content }}
 
         {{ if .Params.tags }}
@@ -22,6 +28,7 @@
             </section>
         {{ end }}
       </article>
+
 
       {{ if ne .Type "page" }}
         <ul class="pager blog-pager">
